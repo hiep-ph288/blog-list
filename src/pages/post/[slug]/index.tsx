@@ -15,9 +15,9 @@ export default function DetailBlogPage({ post }: { post: Post }) {
         <title>{post.title}</title>
         <meta name="description" content={post.body.substring(0, 150)} />
       </Head>
-      <main className="max-w-3xl mx-auto p-6">
-        <h1 className="text-4xl font-bold mb-6">{post.title}</h1>
-        <p className="text-lg leading-relaxed">{post.body}</p>
+      <main className="max-w-3xl mx-auto p-[24px]">
+        <h1 className="text-[32px] font-bold text-center">{post.title}</h1>
+        <p className="text-[16px] leading-relaxed">{post.body}</p>
       </main>
     </>
   );
@@ -35,7 +35,7 @@ export async function getStaticPaths() {
 
   return {
     paths,
-    fallback: false,
+    fallback: "blocking",
   };
 }
 

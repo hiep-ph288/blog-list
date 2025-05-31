@@ -27,21 +27,31 @@ export default function HomePage({ posts }: { posts: Post[] }) {
         <title>Danh sách blog</title>
         <meta name="description" content="Danh sách Blog" />
       </Head>
-      <main className="max-w-3xl mx-auto p-4">
-        <h1 className="text-3xl font-bold mb-6">Danh sách blog</h1>
-        <ul>
+      <main className="max-w-3xl mx-auto">
+        <h1 className="text-3xl font-bold mb-[24px] text-center">Danh sách blog</h1>
+        <div className="flex flex-col gap-[8px] w-[80%] mx-auto">
           {currentPosts.map((post) => (
-            <li key={post.id} className="mb-4 capitalize  border-b pb-2">
-              <Link href={`/post/${post.id}`}>{post.title}</Link>
-              <p className="text-gray-700">{post.body.substring(0, 200)}...</p>
-            </li>
+            <div
+              key={post.id}
+              className="list-none px-[8px] py-[2px] border rounded-[8px]"
+            >
+              <Link
+                href={`/post/${post.id}`}
+                className="text-[20px] no-underline"
+              >
+                {post.title}
+              </Link>
+              <p className="text-[14px] no-underline">
+                {post.body.substring(0, 200)}...
+              </p>
+            </div>
           ))}
-        </ul>
-        <nav className="flex justify-center space-x-3 mt-8">
+        </div>
+        <nav className="flex justify-center mt-[16px]">
           <button
             onClick={() => goToPage(currentPage - 1)}
             disabled={currentPage === 1}
-            className="px-3 py-1 border rounded disabled:opacity-50"
+            className="px-[12px] py-[4px] border rounded disabled:opacity-50"
           >
             Trước
           </button>
@@ -50,7 +60,7 @@ export default function HomePage({ posts }: { posts: Post[] }) {
             <button
               key={i + 1}
               onClick={() => goToPage(i + 1)}
-              className={`px-3 py-1 border rounded ${
+              className={`px-[12px] py-[4px] border rounded ${
                 currentPage === i + 1 ? "bg-blue-600 text-white" : ""
               }`}
             >
@@ -61,7 +71,7 @@ export default function HomePage({ posts }: { posts: Post[] }) {
           <button
             onClick={() => goToPage(currentPage + 1)}
             disabled={currentPage === totalPages}
-            className="px-3 py-1 border rounded disabled:opacity-50"
+            className="px-[12px] py-[4px] border rounded disabled:opacity-50"
           >
             Sau
           </button>
