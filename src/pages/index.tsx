@@ -31,14 +31,9 @@ export default function HomePage({ posts }: { posts: Post[] }) {
         <h1 className="text-3xl font-bold mb-6">Danh sách blog</h1>
         <ul>
           {currentPosts.map((post) => (
-            <li
-              key={post.id}
-              className="mb-4 capitalize text-red-600 border-b pb-2"
-            >
+            <li key={post.id} className="mb-4 capitalize  border-b pb-2">
               <Link href={`/post/${post.id}`}>{post.title}</Link>
-              <p className="text-gray-700 text-[300px]">
-                {post.body.substring(0, 200)}...
-              </p>
+              <p className="text-gray-700">{post.body.substring(0, 200)}...</p>
             </li>
           ))}
         </ul>
